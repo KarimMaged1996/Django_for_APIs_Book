@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party
     'rest_framework',
+    'corsheaders',
     # Loacl
     'todos.apps.TodosConfig',
 ]
@@ -57,7 +58,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # new
 ]
+
+# new
+CORS_ORIGIN_WHITELIST = (
+'http://localhost:3000',
+'http://localhost:8000',
+)
 
 ROOT_URLCONF = 'config.urls'
 
